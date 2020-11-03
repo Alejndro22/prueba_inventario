@@ -1,0 +1,135 @@
+<Id de transacción> <8280></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 01:39:29>/<Fecha y hora de fin>
+
+<Id de transacción> <></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 11:54:33>/<Fecha y hora de fin>
+
+<Id de transacción> <8288></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 11:54:41>/<Fecha y hora de fin>
+
+<Id de transacción> <></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 11:54:45>/<Fecha y hora de fin>
+
+<Id de transacción> <8292></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 11:54:49>/<Fecha y hora de fin>
+
+<Id de transacción> <8298></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 11:55:08>/<Fecha y hora de fin>
+
+<Id de transacción> <></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 11:55:16>/<Fecha y hora de fin>
+
+<Id de transacción> <></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 11:55:30>/<Fecha y hora de fin>
+
+<Id de transacción> <8308></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 11:55:43>/<Fecha y hora de fin>
+
+<Id de transacción> <8310></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Comprometida></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 11:57:09>/<Fecha y hora de fin>
+
+<Id de transacción> <8316></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 11:58:53>/<Fecha y hora de fin>
+
+<Id de transacción> <8318></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 12:00:40>/<Fecha y hora de fin>
+
+<Id de transacción> <8320></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 12:00:44>/<Fecha y hora de fin>
+
+<Id de transacción> <></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 12:00:49>/<Fecha y hora de fin>
+
+<Id de transacción> <></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:17:19>/<Fecha y hora de fin>
+
+<Id de transacción> <8334></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:17:37>/<Fecha y hora de fin>
+
+<Id de transacción> <8336></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:17:43>/<Fecha y hora de fin>
+
+<Id de transacción> <8338></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:17:48>/<Fecha y hora de fin>
+
+<Id de transacción> <8344></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:17:52>/<Fecha y hora de fin>
+
+<Id de transacción> <></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:17:57>/<Fecha y hora de fin>
+
+<Id de transacción> <8352></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:19:39>/<Fecha y hora de fin>
+
+<Id de transacción> <></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:19:43>/<Fecha y hora de fin>
+
+<Id de transacción> <8356></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:21:19>/<Fecha y hora de fin>
+
+<Id de transacción> <8362></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:22:06>/<Fecha y hora de fin>
+
+<Id de transacción> <8364></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:23:18>/<Fecha y hora de fin>
+
+<Id de transacción> <8370></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:23:23>/<Fecha y hora de fin>
+
+<Id de transacción> <8372></Id de transacción>
+<Tipo de transacción> <Editar></Tipo de transacción>
+<Estado de la transacción> <Anulada></Estado de la transacción>
+<Fecha y hora de fin> <2020-09-27 13:23:29>/<Fecha y hora de fin>
+
