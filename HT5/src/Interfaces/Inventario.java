@@ -352,16 +352,16 @@ public class Inventario extends javax.swing.JFrame {
 
         try
         {
-            Statement st = con.createStatement();
-            String sql = "update inventario set Nombre = '" + P.getNombre() + "', Marca = '" + P.getMarca() + "', Precio = " + P.getPrecio() + ", Existencias = " + P.getExistencias() + " where Id = " + P.getId();
-            int n = st.executeUpdate(sql);
-            Date date = new Date();
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String sql1 = "insert into movimiento (fecha, tipo) " + "values ('" + formatter.format(date) + "', 'Editar')";
-            int n2 = st.executeUpdate(sql1);
             int opc = JOptionPane.showConfirmDialog(this, "¿ESTA SEGURO QUE DESEA COMPLETAR LA TRANSACCIÓN?", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (opc == JOptionPane.YES_OPTION)
             {
+                Statement st = con.createStatement();
+                String sql = "update inventario set Nombre = '" + P.getNombre() + "', Marca = '" + P.getMarca() + "', Precio = " + P.getPrecio() + ", Existencias = " + P.getExistencias() + " where Id = " + P.getId();
+                int n = st.executeUpdate(sql);
+                Date date = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String sql1 = "insert into movimiento (fecha, tipo) " + "values ('" + formatter.format(date) + "', 'Editar')";
+                int n2 = st.executeUpdate(sql1);
                 if (n > 0 && n2 > 0)
                 {
                     JOptionPane.showMessageDialog(this, "DATOS ACTUALIZADOS CORRECTAMENTE");
@@ -401,21 +401,18 @@ public class Inventario extends javax.swing.JFrame {
         con = conect.conectarMySQL();
         try
         {
-            con.setAutoCommit(false);
-            System.out.println(con.getTransactionIsolation());
-            Statement st = con.createStatement();
-            String sql = "delete from inventario where id = " + Integer.parseInt(id.getText());
-            int n = st.executeUpdate(sql);
-            Date date = new Date();
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String sql1 = "insert into movimiento (fecha, tipo) " + "values ('" + formatter.format(date) + "', 'Eliminar')";
-            int n2 = st.executeUpdate(sql1);
             int opc = JOptionPane.showConfirmDialog(this, "¿ESTA SEGURO QUE DESEA COMPLETAR LA TRANSACCIÓN?", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (opc == JOptionPane.YES_OPTION)
             {
+                Statement st = con.createStatement();
+                String sql = "delete from inventario where id = " + Integer.parseInt(id.getText());
+                int n = st.executeUpdate(sql);
+                Date date = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String sql1 = "insert into movimiento (fecha, tipo) " + "values ('" + formatter.format(date) + "', 'Eliminar')";
+                int n2 = st.executeUpdate(sql1);
                 if (n > 0 && n2 > 0)
                 {
-                    con.commit();
                     JOptionPane.showMessageDialog(this, "DATO ELIMINADO CORRECTAMENTE");
                     vaciarTabla();
                     verDatos();
@@ -424,24 +421,11 @@ public class Inventario extends javax.swing.JFrame {
             }
             else
             {
-                con.rollback();
                 JOptionPane.showMessageDialog(this, "SE HA CANCELADO LA TRANSACCIÓN");
             }
         } catch (SQLException | HeadlessException e)
         {
             JOptionPane.showMessageDialog(this, "LOS DATOS NO HAN SIDO ELIMINADOS CORRECTAMENTE", "Error", JOptionPane.ERROR_MESSAGE);
-            try {
-                con.rollback();
-            } catch (SQLException ex) {
-                Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println("NO SE HA PODIDO HACER EL ROLLBACK");
-            }
-        }finally{
-            try {
-                con.setAutoCommit(true);
-            } catch (SQLException ex) {
-                Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }//GEN-LAST:event_deleteActionPerformed
 
