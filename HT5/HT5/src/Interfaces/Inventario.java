@@ -4,10 +4,6 @@ import Clases.Conexion;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.beans.PropertyVetoException;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import java.sql.*;
 
 public class Inventario extends javax.swing.JFrame {
     
@@ -37,44 +32,6 @@ public class Inventario extends javax.swing.JFrame {
         existencias.setText("");
     }
     
-    public String getTrxID(){
-        Connection conid = null;
-        Conexion conect = new Conexion();
-        conid = conect.conectarMySQL();
-        String trx_id="";
-        System.out.println("aqui");
-        try{
-                String sqltxt = "SELECT trx.trx_id FROM INFORMATION_SCHEMA.INNODB_TRX trx WHERE trx.trx_started < CURRENT_TIMESTAMP - INTERVAL 1 SECOND;";
-                Statement pst0 = conid.createStatement();
-                try {
-                    //Ponemos a "Dormir" el programa durante los ms que queremos
-                    Thread.sleep(15*100);
-                 } catch (Exception e) {
-                    System.out.println(e);
-                 }
-                ResultSet rsl = pst0.executeQuery(sqltxt);
-                while(rsl.next()){
-                      trx_id = rsl.getString(1);
-                      System.out.println("id"+trx_id);
-                }
-                conid.close();
-             } catch (SQLException ex) {
-                Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-        return trx_id;
-    }
-    
-    public String writeToLog(String accion, String estado, int id, String tabla, String idtrx){
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String str = "<Id de transacción> " + "<" + idtrx + ">" +  "</Id de transacción>" + "\n" +
-                     "<Tipo de transacción> " + "<" + accion + ">" +  "</Tipo de transacción>" + "\n" +
-                     "<Estado de la transacción> " + "<" + estado + ">" + "</Estado de la transacción>" +  "\n" +
-                     "<Fecha y hora de fin> " + "<" + formatter.format(date) + ">" + "/<Fecha y hora de fin>" + "\n" + "\n";
-      return str;
-    }
-    
     public void vaciarTabla(){
         DefaultTableModel Modelo = (DefaultTableModel) jTable1.getModel();
         
@@ -83,8 +40,6 @@ public class Inventario extends javax.swing.JFrame {
         Modelo = new DefaultTableModel(null,titulos);
         jTable1.setModel(Modelo);
     }
-    
-    
     
     public void verDatos(){
         try {
@@ -134,7 +89,6 @@ public class Inventario extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         delete = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -158,6 +112,7 @@ public class Inventario extends javax.swing.JFrame {
             }
         });
 
+        id.setEditable(false);
         id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idActionPerformed(evt);
@@ -231,29 +186,28 @@ public class Inventario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel1)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel2))
-                                        .addGap(23, 23, 23))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(precio)
-                                    .addComponent(nombre)
-                                    .addComponent(existencias)
-                                    .addComponent(marca)
-                                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(291, 291, 291)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2))
+                                .addGap(23, 23, 23))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(precio)
+                            .addComponent(nombre)
+                            .addComponent(existencias)
+                            .addComponent(marca)
+                            .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(78, 518, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(load_data, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(14, 14, 14)
@@ -263,9 +217,9 @@ public class Inventario extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(view_table, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(sett_isolation, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(sett_isolation, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,8 +227,7 @@ public class Inventario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -392,18 +345,13 @@ public class Inventario extends javax.swing.JFrame {
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         // TODO add your handling code here:
-        String accion="Editar";
-        String estado="";
-        String trx_id = "";
         Inventario_class P = new Inventario_class(Integer.parseInt(id.getText()), nombre.getText(), marca.getText(), Float.valueOf(precio.getText()), Integer.parseInt(existencias.getText()));
         Connection con = null;
         Conexion conect = new Conexion();
         con = conect.conectarMySQL();
-        
+
         try
         {
-            con.setAutoCommit(false);
-            System.out.println(con.getTransactionIsolation());
             Statement st = con.createStatement();
             String sql = "update inventario set Nombre = '" + P.getNombre() + "', Marca = '" + P.getMarca() + "', Precio = " + P.getPrecio() + ", Existencias = " + P.getExistencias() + " where Id = " + P.getId();
             int n = st.executeUpdate(sql);
@@ -411,71 +359,24 @@ public class Inventario extends javax.swing.JFrame {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String sql1 = "insert into movimiento (fecha, tipo) " + "values ('" + formatter.format(date) + "', 'Editar')";
             int n2 = st.executeUpdate(sql1);
-            java.sql.Statement st0 = con.createStatement();  
-            estado = "Parcialmente comprometida";
-            
-            
             int opc = JOptionPane.showConfirmDialog(this, "¿ESTA SEGURO QUE DESEA COMPLETAR LA TRANSACCIÓN?", "Pregunta", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            trx_id = getTrxID();
-            jTextField1.requestFocus();
             if (opc == JOptionPane.YES_OPTION)
             {
-                if (n > 0 && n2 > 0){
-                    con.commit();
-                    
-                    estado = "Comprometida";
+                if (n > 0 && n2 > 0)
+                {
                     JOptionPane.showMessageDialog(this, "DATOS ACTUALIZADOS CORRECTAMENTE");
                     vaciarTabla();
                     verDatos();
                     vaciar();
                 }
-                else{
-                con.rollback();
-                estado = "Fallida";
-                JOptionPane.showMessageDialog(this, "SE HA CANCELADO LA TRANSACCIÓN");
-                }
             }
             else
             {
-                con.rollback();
-                estado = "Anulada";
                 JOptionPane.showMessageDialog(this, "SE HA CANCELADO LA TRANSACCIÓN");
             }
         } catch (SQLException | HeadlessException e)
         {
             JOptionPane.showMessageDialog(this, "LOS DATOS NO HAN SIDO ACTUALIZADOS CORRECTAMENTE", "Error", JOptionPane.ERROR_MESSAGE);
-            estado = "Fallida";
-            try {
-                con.rollback();
-            } catch (SQLException ex) {
-                Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println("NO SE HA PODIDO HACER EL ROLLBACK");
-            }
-        }finally{
-            System.out.println(writeToLog(accion, estado, P.getId(), "Inventario - Movimiento", trx_id));
-            try {
-                String ruta = "log.txt";
-                String contenido;
-                contenido = writeToLog(accion, estado, P.getId(), "Inventario - Movimiento", trx_id);
-                File file = new File(ruta);
-                // Si el archivo no existe es creado
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
-                FileWriter fw = new FileWriter(file, true);
-                BufferedWriter bw = new BufferedWriter(fw);
-                bw.write(contenido);
-                bw.close();
-                
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                con.setAutoCommit(true);
-                con.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }//GEN-LAST:event_updateActionPerformed
 
@@ -495,7 +396,6 @@ public class Inventario extends javax.swing.JFrame {
     }//GEN-LAST:event_marcaActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
-        
         Connection con = null;
         Conexion conect = new Conexion();
         con = conect.conectarMySQL();
@@ -539,7 +439,6 @@ public class Inventario extends javax.swing.JFrame {
         }finally{
             try {
                 con.setAutoCommit(true);
-                con.close();
             } catch (SQLException ex) {
                 Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -570,7 +469,6 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton load_data;
     private javax.swing.JTextField marca;
     private javax.swing.JTextField nombre;
